@@ -13,16 +13,16 @@ def chaocipher(text: str, mode: str):
             if mode == 'e' or mode == 'encode':
                 index = rd.index(symbol.lower())
                 if symbol.isupper():
-                    result += ld[26 - index].upper()
+                    result += ld[25 - index].upper()
                 else:
-                    result += ld[26 - index]
+                    result += ld[25 - index]
             else:
                 # Decryption
                 index = ld.index(symbol.lower())
                 if symbol.isupper():
-                    result += rd[-index].upper()
+                    result += rd[-index - 1].upper()
                 else:
-                    result += rd[-index]
+                    result += rd[-index - 1]
             # Disk permutation
             removed_letter = ld.pop(-1)
             ld.insert(13, removed_letter)
